@@ -56,7 +56,11 @@ public class JobTests {
     public void testToStringDataNotAvailable() {
         Job emptyJob = new Job("Ice cream taster", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
         Assertions.assertEquals("\nID: " + emptyJob.getId() + "\nName: Ice cream taster\nEmployer: Data not available\nLocation: Data not available\nPosition Type: Data not available\nCore Competency: Data not available\n", emptyJob.toString());
+    }
 
-
+    @Test
+    public void testAllEmptyButIdNotRealJob() {
+        Job allEmptyJob = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+        Assertions.assertEquals("OOPS! This Job Does Not Exist.", allEmptyJob.toString());
     }
 }
